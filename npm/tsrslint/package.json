@@ -1,8 +1,8 @@
 {
-    "name": "@maschwenk/tsrslint",
+    "name": "@rikcodes/tsrslint",
     "version": "0.0.0-set-by-npm-build",
     "license": "MIT",
-    "description": "tsgolint's type-aware lint backend for oxlint, ported to Rust on top of tsrs",
+    "description": "tsgolint's type-aware lint backend for oxlint, ported to Rust on top of tsrs (a fork of maschwenk/tsrslint)",
     "keywords": [
         "oxlint",
         "tsgolint",
@@ -12,7 +12,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/maschwenk/tsrslint.git"
+        "url": "git+https://github.com/rikbrown/tsrslint.git"
     },
     "type": "commonjs",
     "preferUnplugged": true,
