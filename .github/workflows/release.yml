@@ -1,11 +1,15 @@
 # Builds the tsrslint binaries and publishes the npm packages (npm/README.md). Modeled on maschwenk/tsrs's release
 # workflow. Lint CI (fmt, rule tests, packaging smoke test): .github/workflows/ci.yml.
 #
-# Setup before the first release:
-#   - npm trusted publishing (https://docs.npmjs.com/trusted-publishers) on @maschwenk/tsrslint and on each
-#     @maschwenk/tsrslint-<os>-<cpu> package: GitHub Actions, owner maschwenk, repository tsrslint, workflow
-#     release.yml, no environment. The publish job authenticates with its OIDC token; there is no npm token.
-#   - push the tag v<workspace version> (node npm/build.mjs --print-version), e.g. v0.1.0.
+# This fork (rikbrown/tsrslint) publishes @rikcodes/tsrslint and @rikcodes/tsrslint-<os>-<cpu>.
+# Setup:
+#   - The first publish of a package name cannot use trusted publishing: npm configures a trusted publisher in the
+#     settings of a package that exists. The repository secret NPM_TOKEN (a granular token that can publish to the
+#     @rikcodes scope) authenticates it through NODE_AUTH_TOKEN.
+#   - After the first publish, add npm trusted publishing (https://docs.npmjs.com/trusted-publishers) on each of the
+#     four packages: GitHub Actions, owner rikbrown, repository tsrslint, workflow release.yml, no environment. Then
+#     delete NPM_TOKEN; npm tries the OIDC token first and the publish job needs no other change.
+#   - push the tag v<workspace version> (node npm/build.mjs --print-version), e.g. v0.1.6-rikcodes.0.
 # workflow_dispatch builds, smoke-tests and packs, then runs `npm publish --dry-run` unless dry_run is unchecked.
 # Provenance (`npm publish --provenance`) is only possible from a public repository; it is enabled automatically
 # when the repository is public and skipped while it is private.
@@ -187,6 +191,8 @@ jobs:
           path: npm/dist/*.tgz
       - name: Publish (platform packages first, then the main package)
         env:
+          # Only until the trusted publishers exist (header). Empty when the secret is not set.
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
           VERSION: ${{ needs.version.outputs.version }}
           PRIVATE_REPO: ${{ github.event.repository.private }}

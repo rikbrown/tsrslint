@@ -4,8 +4,8 @@ Modeled on maschwenk/tsrs's npm packaging (TypeScript 7's scheme):
 
 | package | contents |
 | --- | --- |
-| `@maschwenk/tsrslint` | `bin/tsrslint` (Node launcher), `bin/tsrslint-path` (prints the binary path), `lib/index.cjs` (`binaryPath()`, `version`, `tsrsCommit`), `optionalDependencies` on every platform package |
-| `@maschwenk/tsrslint-<os>-<arch>` | the native binary `tsrslint` for one platform, with `os`/`cpu` (and `libc: glibc` on Linux) so package managers install only the matching one |
+| `@rikcodes/tsrslint` | `bin/tsrslint` (Node launcher), `bin/tsrslint-path` (prints the binary path), `lib/index.cjs` (`binaryPath()`, `version`, `tsrsCommit`), `optionalDependencies` on every platform package |
+| `@rikcodes/tsrslint-<os>-<arch>` | the native binary `tsrslint` for one platform, with `os`/`cpu` (and `libc: glibc` on Linux) so package managers install only the matching one |
 
 Platforms: `darwin-arm64`, `linux-x64`, `linux-arm64` (glibc), as for tsrs. The bin is `tsrslint` rather than
 `tsgolint` so the package can sit next to `oxlint-tsgolint` (shadow mode); oxlint is pointed at the native binary

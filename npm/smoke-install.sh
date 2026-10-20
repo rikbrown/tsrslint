@@ -12,13 +12,17 @@ cd "$dir"
 npm init -y > /dev/null
 npm install --no-audit --no-fund "$dist"/*.tgz
 
+# The main package's name, from the template that npm/build.mjs packs.
+name=$(node -p 'require(process.argv[1]).name' "$repo/npm/tsrslint/package.json")
+export TSRSLINT_PACKAGE="$name"
+
 npx --no-install tsrslint --version
 bin=$(npx --no-install tsrslint-path)
 echo "binary: $bin"
 test -x "$bin"
-api=$(node -p 'require("@maschwenk/tsrslint").binaryPath()')
+api=$(node -p 'require(process.env.TSRSLINT_PACKAGE).binaryPath()')
 [ "$api" = "$bin" ] || { echo "binaryPath() returned $api, tsrslint-path printed $bin"; exit 1; }
-node -e 'const m = require("@maschwenk/tsrslint"); if (!m.version || !m.tsrsCommit) process.exit(1); console.log(m.version, m.tsrsCommit)'
+node -e 'const m = require(process.env.TSRSLINT_PACKAGE); if (!m.version || !m.tsrsCommit) process.exit(1); console.log(m.version, m.tsrsCommit)'
 
 # Through the Node launcher (args and stdio passed through) and the native binary directly, as OXLINT_TSGOLINT_PATH uses it.
 node "$repo/npm/smoke.mjs" "$dir/node_modules/.bin/tsrslint"

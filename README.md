@@ -3,6 +3,11 @@
 [![npm](https://img.shields.io/npm/v/@maschwenk/tsrslint)](https://www.npmjs.com/package/@maschwenk/tsrslint)
 [![license](https://img.shields.io/badge/license-MIT-blue)](https://github.com/maschwenk/tsrslint/blob/main/LICENSE)
 
+> This is a fork of [maschwenk/tsrslint](https://github.com/maschwenk/tsrslint). Its `rikcodes-release` branch adds the
+> tsgolint 7.0.2003 and 7.0.2004 rule changes (maschwenk/tsrslint#8) and publishes them as
+> [`@rikcodes/tsrslint`](https://www.npmjs.com/package/@rikcodes/tsrslint) with `-rikcodes.N` prerelease versions.
+> Use the upstream package when it has these changes.
+
 `tsrslint` is a drop-in replacement for [tsgolint](https://github.com/oxc-project/tsgolint), the type-aware lint
 backend of [oxlint](https://oxc.rs), written in Rust on top of [tsrs](https://github.com/maschwenk/tsrs).
 It runs the same rules and reports the same diagnostics, faster and in a fraction of the memory.

@@ -1,6 +1,6 @@
 /**
  * Absolute path of the native tsrslint binary for this platform (from the optional dependency
- * `@maschwenk/tsrslint-<os>-<arch>`, or `TSRSLINT_BINARY` when set). Point `OXLINT_TSGOLINT_PATH` at it.
+ * `@rikcodes/tsrslint-<os>-<arch>`, or `TSRSLINT_BINARY` when set). Point `OXLINT_TSGOLINT_PATH` at it.
  * Throws when the platform package is not installed.
  */
 export declare function binaryPath(): string;
