@@ -4,7 +4,7 @@
 [![license](https://img.shields.io/badge/license-MIT-blue)](https://github.com/maschwenk/tsrslint/blob/main/LICENSE)
 
 > This is a fork of [maschwenk/tsrslint](https://github.com/maschwenk/tsrslint). Its `rikcodes-release` branch adds the
-> tsgolint 7.0.2003 and 7.0.2004 rule changes (maschwenk/tsrslint#8) and publishes them as
+> tsgolint 7.0.2003, 7.0.2004 and 7.0.2005 rule changes (maschwenk/tsrslint#8) and publishes them as
 > [`@rikcodes/tsrslint`](https://www.npmjs.com/package/@rikcodes/tsrslint) with `-rikcodes.N` prerelease versions.
 > Use the upstream package when it has these changes.
 

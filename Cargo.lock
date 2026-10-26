@@ -660,7 +660,7 @@ dependencies = [
 
 [[package]]
 name = "tsrslint"
-version = "0.1.6-rikcodes.0"
+version = "0.1.6-rikcodes.1"
 dependencies = [
  "mimalloc",
  "rayon",

@@ -1,11 +1,11 @@
 # @rikcodes/tsrslint
 
 A fork of [maschwenk/tsrslint](https://github.com/maschwenk/tsrslint), built from
-[rikbrown/tsrslint](https://github.com/rikbrown/tsrslint). It adds the rule changes of tsgolint 7.0.2003 and 7.0.2004
-(maschwenk/tsrslint#8). The `-rikcodes.N` prerelease versions are not upstream releases.
+[rikbrown/tsrslint](https://github.com/rikbrown/tsrslint). It adds the rule changes of tsgolint 7.0.2003, 7.0.2004 and
+7.0.2005 (maschwenk/tsrslint#8). The `-rikcodes.N` prerelease versions are not upstream releases.
 
 A Rust port of [tsgolint](https://github.com/oxc-project/tsgolint), oxlint's type-aware lint backend, built on
-[tsrs](https://github.com/maschwenk/tsrs) (a Rust port of the TypeScript 7 checker). It implements all 60 tsgolint
+[tsrs](https://github.com/maschwenk/tsrs) (a Rust port of the TypeScript 7 checker). It implements all 61 tsgolint
 rules and speaks tsgolint's headless protocol, so oxlint runs it in place of `oxlint-tsgolint`.
 
 ```sh
